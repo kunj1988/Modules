@@ -1,0 +1,17 @@
+<?php /** @var \Magento\Framework\View\Element\Template $block */?>
+<div id="customer-group"></div>
+<script type="text/javascript">
+    require([
+        "jquery",
+        'jquery/ui'
+    ], function($){
+        "use strict";
+        $.ajax({
+            url: "<?= $block->getUrl('custom_bar/account/group') ?>",
+            type: "GET",
+            dataType: 'json'
+        }).done(function (data) {
+            $('#customer-group').html(data.customer_group);
+        });
+    });
+</script>
